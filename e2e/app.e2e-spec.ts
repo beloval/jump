@@ -1,6 +1,6 @@
 import { MyAppNewPage } from './app.po';
 
-describe('my-app-new App', function() {
+describe('JUMP', function() {
   let page: MyAppNewPage;
 
   beforeEach(() => {
