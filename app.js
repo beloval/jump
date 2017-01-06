@@ -25,7 +25,11 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(function (req, res, next) {
+  res.set('X-Powered-By', 'JUMP LLC');
+  next();
+});
+app.disable('x-powered-by');
 app.use(express.static(path.join(__dirname, 'public'), options));
 app.use(express.static(path.join(__dirname, 'app')));
 
