@@ -1,0 +1,6 @@
+{
+  "name": "jump",
+  "description": "JUMP application of Angular2 and Express",
+  "repository": "https://github.com/beloval/jump.git",
+  "keywords": ["angular2", "express", "node"]
+}
