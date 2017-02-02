@@ -9,9 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var ng2_translate_1 = require("ng2-translate");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(translate) {
+        this.translate = translate;
         this.name = "Angular 2 on Express";
+        translate.addLangs(["en", "fr"]);
+        translate.setDefaultLang('en');
+        var browserLang = translate.getBrowserLang();
+        translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
     }
     return AppComponent;
 }());
@@ -21,7 +27,7 @@ AppComponent = __decorate([
         styles: ["h1 {\n\tcolor: white;\n\tbackground: darkgray;\n\tpadding: 20px;\n}\n"],
         template: "\n<h1>My First {{name}} app</h1>\n<router-outlet></router-outlet>\n\n<a [routerLink]=\"['/']\">Home</a> | <a [routerLink]=\"['/about/', { id: 2 }]\">About</a>",
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [ng2_translate_1.TranslateService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

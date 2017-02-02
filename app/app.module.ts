@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
+import {TranslateModule} from "ng2-translate";
 
 import { AppComponent }  from './app.component';
 import { AboutComponent } from "./components/about/about.component";
@@ -12,7 +13,8 @@ import { HomeComponent } from "./components/home/home.component";
         BrowserModule,
         HttpModule,
         JsonpModule,
-        routing
+        routing,
+        TranslateModule.forRoot()
     ],
     declarations: [
         AppComponent,

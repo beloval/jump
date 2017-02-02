@@ -14,6 +14,7 @@ var isPublic = typeof window != "undefined";
     map: {
       // our app is within the app folder
       app: (isPublic) ? '' : 'app',
+      'ng2-translate': 'npm:ng2-translate/bundles/ng2-translate.umd.js',
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -35,6 +36,9 @@ var isPublic = typeof window != "undefined";
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      'ng2-translate': {
         defaultExtension: 'js'
       }
     }
