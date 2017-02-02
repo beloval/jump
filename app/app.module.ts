@@ -1,8 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule, JsonpModule } from '@angular/http';
-import {TranslateModule} from "ng2-translate";
-
+import { HttpModule, JsonpModule, Http } from '@angular/http';
+import {TranslateStaticLoader, TranslateLoader, TranslateModule} from 'ng2-translate';
 import { AppComponent }  from './app.component';
 import { AboutComponent } from "./components/about/about.component";
 import { routing } from "./routes";
@@ -14,7 +13,11 @@ import { HomeComponent } from "./components/home/home.component";
         HttpModule,
         JsonpModule,
         routing,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot({
+            provide: TranslateLoader,
+            useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
+            deps: [Http]
+        })
     ],
     declarations: [
         AppComponent,

@@ -11,14 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
+var ng2_translate_1 = require("ng2-translate");
 var HomeComponent = (function () {
-    function HomeComponent(http) {
+    function HomeComponent(http, translate) {
         var _this = this;
+        this.translate = translate;
         this.name = "Home page";
+        this.currentLocale = translate.currentLang;
         http.get("/users")
             .map(function (data) { return data.json(); })
             .subscribe(function (data) { return _this.users = data; });
     }
+    HomeComponent.prototype.onChangeLocaleClick = function (loc) {
+        this.currentLocale = loc;
+        this.translate.use(loc);
+    };
     return HomeComponent;
 }());
 HomeComponent = __decorate([
@@ -27,7 +34,7 @@ HomeComponent = __decorate([
         templateUrl: 'components/home/home.component.html',
         styleUrls: ['components/home/home.component.css']
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, ng2_translate_1.TranslateService])
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

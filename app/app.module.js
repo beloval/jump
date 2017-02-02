@@ -25,7 +25,11 @@ AppModule = __decorate([
             http_1.HttpModule,
             http_1.JsonpModule,
             routes_1.routing,
-            ng2_translate_1.TranslateModule.forRoot()
+            ng2_translate_1.TranslateModule.forRoot({
+                provide: ng2_translate_1.TranslateLoader,
+                useFactory: function (http) { return new ng2_translate_1.TranslateStaticLoader(http, 'assets/i18n', '.json'); },
+                deps: [http_1.Http]
+            })
         ],
         declarations: [
             app_component_1.AppComponent,

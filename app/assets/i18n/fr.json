@@ -1,6 +1,8 @@
 {
   "ANALYTICS_REPORTS":  "Rapports analytiques",
-
+  "USERNAME": "Usager",
+  "fr" : "Français",
+  "en" : "English",
   "CONTRACT_TERM": "Terme du contrat"
 
 }
